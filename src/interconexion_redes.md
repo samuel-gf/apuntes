@@ -20,13 +20,16 @@ logo : true
 
 ## Componentes de una tarjeta de red
 
-- Indicadores de actividad o leds : son luces que lleva la tarjeta. Indican si la tarjeta está funcionando correctamente.
+- Indicadores de actividad o leds : son luces que lleva la tarjeta. Indican si la tarjeta está funcionando 
+correctamente.
   El significado de cada luz depende de las indicaciones del fabricante.
-- Conexión para cable de red : Sirve para conectar el cable de red al ordenador. Hay tarjetas que además incluyen un puerto 
+- Conexión para cable de red : Sirve para conectar el cable de red al ordenador. Hay tarjetas que además incluyen un 
+puerto 
   para cable coaxial, una antena o múltiple puertos.
 - Conexión de la placa base :  Son pines (o conectores) que sirven para unir la tarjeta a la placa base.
 
-Cada tarjeta de red tiene un indicador único llamado <mark>dirección física</mark> (o <i>MAC</i>). Está formada por 48 bits.
+Cada tarjeta de red tiene un indicador único llamado <mark>dirección física</mark> (o <i>MAC</i>). Está formada por 
+48 bits.
 	Por ejemplo: 00:1B:41:9F:1A:07.
 
 Es frecuente que la tarjeta de red sea inhálambrica.
@@ -44,7 +47,8 @@ la detecte y la configure de manera automática.
 <!-- ------------------------------------------------------>
 ## Investiga sobre adaptadores de red
 
-+ Investiga que tarjeta de red tiene el ordenador que estás empleando: Fabricante, modelo, pasos para ver la configuración.
++ Investiga que tarjeta de red tiene el ordenador que estás empleando: Fabricante, modelo, pasos para ver la 
+configuración.
 + Obten la MAC de tu adaptador de red.
 + Averigua lo que debes escribir en el terminal para obtener la información sobre tu tarjeta de red.
 + ¿Cuál es tu número de *IP*?
@@ -56,7 +60,8 @@ la detecte y la configure de manera automática.
 ## Repetidor, concentrador o hub
 
 Se encargan de regenerar la señal. Todas las señales pierden intensidad a medida que viajan por el medio (atenuación)
-por lo que volver a dotar a la señal de intensidad le permite alcanzar mayores distancias e impedir que las señal llegue
+por lo que volver a dotar a la señal de intensidad le permite alcanzar mayores distancias e impedir que las señal 
+llegue
 deteriorada. Cuando un repetidor recibe una trama se limita a repetirla.
 
 ### Funcionamiento del repetidor
@@ -95,10 +100,13 @@ Su **funcionamiento** se base en redireccionar cada trama que recibe por el puer
 - Pertenecen al nivel de enlace (capa 2 OSI).
 - Son siempre locales.
 - Existen variedades con diferente número de puertos.
-- Pueden repartir el ancho de banda, lo que significa que cuantos más equipos conectemos más despacio funcionará la red.
-- Son fácilmente escalables, podemos ampliar la red de manera muy sencilla, pero no es adecuado conectar demasiados en cascada.
+- Pueden repartir el ancho de banda, lo que significa que cuantos más equipos conectemos más despacio funcionará la 
+red.
+- Son fácilmente escalables, podemos ampliar la red de manera muy sencilla, pero no es adecuado conectar demasiados en 
+cascada.
 - Algunos se pueden conectar a buses de alta velocidad.
-- PoE (Power over Ethernet): Algunos switches pueden alimentar dispositivos como cámaras IP mediante el mismo cable de red.
+- PoE (Power over Ethernet): Algunos switches pueden alimentar dispositivos como cámaras IP mediante el mismo cable de 
+red.
 
 ### ¿Cómo funciona un switch?
 
@@ -118,7 +126,8 @@ Ejemplo : Si el ordenador A quiere enviar datos al ordenador B, el switch solo e
 Conclusión :: Los switches son más eficientes que los hubs y son el estándar en redes modernas.
 
 
-Tienen los mismos parámetros de red que un nodo cualquiera. Es decir, número de IP, máscara de red, puerta de enlace, etc. Para
+Tienen los mismos parámetros de red que un nodo cualquiera. Es decir, número de IP, máscara de red, puerta de 
+enlace, etc. Para
 conectar un equipo a un switch, se utiliza un *cable directo*. Para conectar dos switches entre sí se emplea
 un *cable cruzado*.
 
@@ -145,13 +154,16 @@ asegurando que no todos los empleados tengan acceso a recursos críticos.
 ### Preguntas de repaso sobre switch
 
 <section class="actividades">
+**Actividades**
 
 + ¿Cuál es la diferencia entre un switch y un hub?
 + ¿Qué función tiene la dirección MAC en un switch?
 + ¿Qué ventajas ofrece un switch gestionable frente a uno no gestionable?
 + ¿Para qué sirve una VLAN?
-+ Investiga sobre switches: gestionables vs. no gestionables. ¿Cuáles son las principales diferencias y en qué casos se utiliza cada uno?
-+ Investiga sobre protocolos de red para switches (por ejemplo, STP – Spanning Tree Protocol). ¿Qué es y por qué es importante?
++ Investiga sobre switches: gestionables vs. no gestionables. ¿Cuáles son las principales diferencias y en qué casos 
+se utiliza cada uno?
++ Investiga sobre protocolos de red para switches (por ejemplo, STP – Spanning Tree Protocol). ¿Qué es y por qué 
+es importante?
 
 </section>
 
@@ -160,8 +172,10 @@ asegurando que no todos los empleados tengan acceso a recursos críticos.
 <!-- ------------------------------------------------------>
 ## VLAN
 
-Una VLAN (Virtual Local Area Network) es una tecnología que permite segmentar una red física en varias redes lógicas. 
-Con VLANs, varios dispositivos que están físicamente en la misma red (conectados al mismo switch) pueden actuar como si estuvieran en redes separadas.
+Una VLAN (Virtual Local Area Network) es una tecnología que permite segmentar una red física en varias redes 
+lógicas. 
+Con VLANs, varios dispositivos que están físicamente en la misma red (conectados al mismo switch) pueden actuar como 
+si estuvieran en redes separadas.
 
 <figure>
 <img src="svg/VLAN.svg" alt="Esquema VLAN">
@@ -174,14 +188,18 @@ Ejemplo :: En una empresa, puedes crear una VLAN para el departamento de
 
 ### ¿Por qué usar VLANs?
 
-- Seguridad : Los dispositivos de una VLAN no pueden comunicarse con dispositivos en otra VLAN a menos que se configure un enrutamiento entre ellas.
+- Seguridad : Los dispositivos de una VLAN no pueden comunicarse con dispositivos en otra VLAN a menos que se configure 
+un enrutamiento entre ellas.
 - Segmentación : Se pueden separar diferentes tipos de tráfico (como el de voz y el de datos).
-- Eficiencia : Reduce el tráfico en la red, ya que solo los dispositivos dentro de una VLAN reciben los datos relevantes.
-- Flexibilidad : No es necesario reorganizar físicamente los dispositivos para cambiar su pertenencia a una red. Basta con modificar la configuración del switch.
+- Eficiencia : Reduce el tráfico en la red, ya que solo los dispositivos dentro de una VLAN reciben los datos 
+relevantes.
+- Flexibilidad : No es necesario reorganizar físicamente los dispositivos para cambiar su pertenencia a una red. Basta 
+con modificar la configuración del switch.
 
 ### Tipos de VLAN
 
-- VLAN de datos : Para separar diferentes tipos de tráfico de datos. Por ejemplo VLAN para usuarios de oficina, otra VLAN para desarrollo.
+- VLAN de datos : Para separar diferentes tipos de tráfico de datos. Por ejemplo VLAN para usuarios de oficina, otra 
+VLAN para desarrollo.
 - VLAN de voz : Reservada para el tráfico de voz, por ejemplo, de teléfonos IP
 - VLAN nativa : Utilizada por el switch para etiquetar tráfico no asignado a ninguna VLAN específica.
 - VLAN de gestión : Para acceder a la configuración del switch de forma segura.
@@ -266,8 +284,10 @@ a qué VLAN pertenece el paquete. Los dispositivos que no están en la misma VLA
 + Investiga los principales fabricantes de routers. Cita al menos 3 marcas populares y dos modelos de cada uno.  
    DETALLA: Velocidad, precio y número de puertos ethernet.
 + Investiga como enruta mediante una <i>tabla de encaminamiento</i> (busca al menos un ejemplo de tabla).
-+ Investiga sobre vulnerabilidades en el router de casa: Ataques de fuerza bruta, firmware desactualizado. Sugiere medidas de seguridad.
-+ Firewall (cortafuegos) Investiga que es y si un router puede actuar como cortafuegos. También investiga sobre las reglas que permiten filtrar paquetes.
++ Investiga sobre vulnerabilidades en el router de casa: Ataques de fuerza bruta, firmware desactualizado. Sugiere 
+medidas de seguridad.
++ Firewall (cortafuegos) Investiga que es y si un router puede actuar como cortafuegos. También investiga sobre las 
+reglas que permiten filtrar paquetes.
 
 <p>!!Dada la tabla de enrutamiento:!!</p>
 
@@ -306,22 +326,27 @@ a qué VLAN pertenece el paquete. Los dispositivos que no están en la misma VLA
 ## Puente o bridge
 
 - Un !!bridge o puente!! es un dispositivo de capa 2 del modelo OSI que se utiliza para dividir una red de 
-  área local (LAN) en segmentos más pequeños. Cada segmento se conecta al bridge, que permite la comunicación entre ellos.
+  área local (LAN) en segmentos más pequeños. Cada segmento se conecta al bridge, que permite la comunicación entre 
+ellos.
 - Se usa para reducir el tráfico en una red, mejorando la eficiencia y el rendimiento.
-- Un bridge filtra y reenvía el tráfico entre los segmentos de red según la dirección MAC (Media Access Control) de cada dispositivo.
+- Un bridge filtra y reenvía el tráfico entre los segmentos de red según la dirección MAC (Media Access Control) de 
+cada dispositivo.
 - Cuando un paquete llega al bridge, este inspecciona la dirección MAC de destino y decide si reenvi
 - segmento correspondiente o descartar el paquete si ya está en el segmento correcto.
 
 ### Tabla de direcciones MAC
 
 - Los bridges mantienen una tabla de direcciones MAC que asocia cada dirección MAC con un puerto específico.
-- Esta tabla se actualiza constantemente: cuando el bridge recibe un paquete, registra la dirección MAC de origen y el puerto desde 
-  el se recibió. Esto le permite saber en qué segmento de la red está cada dispositivo y hacer el reenvío de manera más eficiente.
+- Esta tabla se actualiza constantemente: cuando el bridge recibe un paquete, registra la dirección MAC de origen y el 
+puerto desde 
+  el se recibió. Esto le permite saber en qué segmento de la red está cada dispositivo y hacer el reenvío de manera 
+más eficiente.
 
 
 ### Tipos de bridges
 
-- Bridge Transparente = También conocido como bridge Ethernet, que funciona de manera transparente para los dispositivos. 
+- Bridge Transparente = También conocido como bridge Ethernet, que funciona de manera transparente para los 
+dispositivos. 
   Solo reenvía el tráfico entre segmentos de red sin que los dispositivos sepan de su existencia.
 - Bridge de Aprendizaje o Autoaprendizaje = Aprende automáticamente las direcciones MAC de los dispositivos conectados 
   y usa esta información para decidir dónde reenviar el tráfico.
@@ -330,15 +355,19 @@ a qué VLAN pertenece el paquete. Los dispositivos que no están en la misma VLA
 
 ### Ventajas de los puentes
 
-- Reducción de Colisiones : Al dividir la red en segmentos, los bridges ayudan a reducir el dominio de colisión, mejorando la eficiencia.
-- Aumento de la Seguridad : Los bridges pueden filtrar tráfico, permitiendo o bloqueando ciertos paquetes según la dirección MAC.
+- Reducción de Colisiones : Al dividir la red en segmentos, los bridges ayudan a reducir el dominio de colisión, 
+mejorando la eficiencia.
+- Aumento de la Seguridad : Los bridges pueden filtrar tráfico, permitiendo o bloqueando ciertos paquetes según la 
+dirección MAC.
 - Escalabilidad : Facilita la expansión de la red, permitiendo añadir más segmentos sin congestionar el tráfico.
 
 ### Diferencias con otros dispositivos de red
 
-- A diferencia de los switches, que también trabajan en la capa 2 y realizan funciones similares, los bridges son menos eficientes en  
+- A diferencia de los switches, que también trabajan en la capa 2 y realizan funciones similares, los bridges son 
+menos eficientes en  
   redes más grandes, ya que suelen procesar el tráfico más lentamente.
-- A diferencia de los routers, que operan en la capa 3 y encaminan paquetes basados en direcciones IP, los bridges solo se ocupan 
+- A diferencia de los routers, que operan en la capa 3 y encaminan paquetes basados en direcciones IP, los bridges solo 
+se ocupan 
   de direcciones MAC y no pueden conectar redes con distintas subredes IP.
 
 ### Ejemplos prácticos y usos en redes locales
@@ -357,16 +386,20 @@ a qué VLAN pertenece el paquete. Los dispositivos que no están en la misma VLA
 ### Trama (frame)
 
 - Se refiere a la unidad de datos en la Capa de Enlace de Datos (Capa 2 del modelo OSI).
-- Las tramas son la forma en que los datos se encapsulan para ser transmitidos a través de un medio físico (por ejemplo, cables Ethernet o Wi-Fi).
-- Las tramas incluyen encabezados que contienen direcciones MAC (la dirección física de los dispositivos), así como información de control de errores.
+- Las tramas son la forma en que los datos se encapsulan para ser transmitidos a través de un medio físico (por 
+ejemplo, cables Ethernet o Wi-Fi).
+- Las tramas incluyen encabezados que contienen direcciones MAC (la dirección física de los dispositivos), así como 
+información de control de errores.
 - Ejemplos: Tramas Ethernet, Tramas 802.11 (Wi-Fi).
 
 
 ### Paquete (packet)
 
 - Se refiere a la unidad de datos en la Capa de Red (Capa 3 del modelo OSI).
-- Los paquetes contienen direcciones IP (Internet Protocol) que permiten que los datos se enruten a través de diferentes redes hasta llegar al destino final.
-- Un paquete puede estar contenido dentro de una trama. Por ejemplo, en una red Ethernet, el paquete IP se encapsula dentro de una trama Ethernet.
+- Los paquetes contienen direcciones IP (Internet Protocol) que permiten que los datos se enruten a través de 
+diferentes redes hasta llegar al destino final.
+- Un paquete puede estar contenido dentro de una trama. Por ejemplo, en una red Ethernet, el paquete IP se encapsula 
+dentro de una trama Ethernet.
 - Ejemplos: Paquetes IP (IPv4 o IPv6).
 
 
@@ -394,13 +427,17 @@ han actualizado con los años para mejorar velocidad, alcance y eficiencia:
 - 802.11g = hasta 54 Mbps.
 - 802.11n = hasta 600 Mbps, usa bandas de 2.4 GHz y 5 GHz.
 - 802.11ac = hasta 1 Gbps y usa principalmente 5 GHz.
-- 802.11ax (WiFi 6) = mejora la capacidad de dispositivos conectados y optimiza la velocidad en entornos densamente poblados.
+- 802.11ax (WiFi 6) = mejora la capacidad de dispositivos conectados y optimiza la velocidad en entornos densamente 
+poblados.
 
 ## Funcionalidades clave de wifi
 
-- Doble banda : Permiten trabajar en dos frecuencias (2.4 GHz y 5 GHz), evitando congestión en redes y optimizando velocidad y alcance.
-- MIMO (Multiple Input, Multiple Output) : Permite la transmisión simultánea de datos por varias antenas, mejorando la velocidad y cobertura.
-- Compatibilidad con WPS (WiFi Protected Setup) : Facilita la conexión segura con el router sin necesidad de introducir contraseñas largas.
+- Doble banda : Permiten trabajar en dos frecuencias (2.4 GHz y 5 GHz), evitando congestión en redes y optimizando 
+velocidad y alcance.
+- MIMO (Multiple Input, Multiple Output) : Permite la transmisión simultánea de datos por varias antenas, mejorando 
+la velocidad y cobertura.
+- Compatibilidad con WPS (WiFi Protected Setup) : Facilita la conexión segura con el router sin necesidad de 
+introducir contraseñas largas.
 
 ## Seguridad en wifi
 
@@ -408,7 +445,8 @@ Las tarjetas WiFi deben ser compatibles con protocolos de seguridad para protege
 
 - WEP (Wired Equivalent Privacy) : Antiguo y menos seguro.
 - WPA (WiFi Protected Access) y WPA2 : Más seguros que WEP.
-- WPA3 : Último estándar de seguridad WiFi, ofrece una protección mejorada contra ataques y encriptación de última generación.
+- WPA3 : Último estándar de seguridad WiFi, ofrece una protección mejorada contra ataques y encriptación de última 
+generación.
 
 ## Actividades wifi
 
@@ -437,7 +475,8 @@ puntos de acceso adicionales.
 Un gamer quiere mejorar la velocidad y estabilidad de su conexión 
 a Internet en casa. Juega principalmente en un PC de sobremesa que está ubicada en la planta superior de 
 su casa, a unos 15 metros del router, con varias paredes de por medio. La casa tiene 
-varios dispositivos conectados a la red (smart TV, smartphones, etc.), y el usuario también suele transmitir en plataformas en vivo.
+varios dispositivos conectados a la red (smart TV, smartphones, etc.), y el usuario también suele transmitir en 
+plataformas en vivo.
 
 
 /// actividades
@@ -454,12 +493,14 @@ varios dispositivos conectados a la red (smart TV, smartphones, etc.), y el usua
 
 Un espacio de coworking tiene capacidad para 10 personas, cada una con al menos dos dispositivos conectados. El 
 lugar ya cuenta con puntos de acceso WiFi en cada esquina del espacio, pero un usuario necesita una tarjeta 
-WiFi para su laptop que le permita conectarse de forma eficiente y sin interferencias, especialmente en las horas de mayor tráfico.
+WiFi para su laptop que le permita conectarse de forma eficiente y sin interferencias, especialmente en las horas de 
+mayor tráfico.
 
 /// actividades
 
 + Diseña la red.
-+ ¿Qué norma WiFi sería más adecuada para minimizar interferencias y optimizar el rendimiento en un entorno de alta densidad?
++ ¿Qué norma WiFi sería más adecuada para minimizar interferencias y optimizar el rendimiento en un entorno de alta 
+densidad?
 + ¿Qué papel juega la tecnología MIMO en este caso y cómo ayuda a mejorar la conectividad?
 + ¿Debería priorizar una tarjeta compatible con WPA3 por cuestiones de seguridad en un lugar con muchos dispositivos?
 + Prepara un presupuesto para esta red.
@@ -468,5 +509,6 @@ WiFi para su laptop que le permita conectarse de forma eficiente y sin interfere
 
 # Recursos
 
-<p><a href="https://www.netacad.com/es/courses/getting-started-cisco-packet-tracer?courseLang=es-XL">Packet Tracer</a></p>
+<p><a href="https://www.netacad.com/es/courses/getting-started-cisco-packet-tracer?courseLang=es-XL">Packet 
+Tracer</a></p>
 
