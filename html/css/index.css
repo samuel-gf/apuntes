@@ -1,0 +1,179 @@
+/* Mobile */
+
+body{
+	background-color: var(--color1-light);
+	background-image: url('../img/index/fondo-cabeza.svg');
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-attachment: fixed;
+}
+
+body > header h1{
+	text-align: right;
+	font-size: 3rem;
+	text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.9);
+	text-decoration: underline;
+	text-decoration-color: var(--color2);
+	text-decoration-thickness: 0.5rem;
+	text-decoration-style: dotted;
+}
+
+section{
+	display: flex;
+	margin-top: 1rem;
+}
+section header{
+	writing-mode: sideways-lr;
+	border-radius: 1rem 0rem 0rem 1rem;
+	padding: 0 0.5rem;
+	background-color: var(--color1-dark);
+}
+@supports not (writing-mode: sideways-lr){
+	section header{
+		writing-mode: vertical-rl;
+		transform: rotate(180deg);
+	border-radius: 0rem 1rem 1rem 0rem;
+	}
+}
+section header h1{
+	font-size: 1.5rem;
+	color: var(--color2);
+	text-align: center;
+	color: white;
+	text-align: right;
+	padding-top: 1rem;
+
+}
+section main{
+	border: 1px dotted var(--color1-dark);
+	border-left: none;
+	border-radius: 0rem 1rem 1rem 0rem;
+	background-color: #fafafaa0;
+}
+
+section main .item{
+	margin-bottom: 2rem;
+	padding: 1rem 0.5rem 0 0;
+}
+section main .item a{
+	display: flex;
+}
+section main .item img{
+	width: 50px;
+	height: 50px;
+	object-fit: cover;
+	border-radius: 50%;
+	margin: 0 1rem;
+}
+section main .item div h1{
+	font-size: 1.2rem;
+	margin: 0;
+	text-decoration: underline;
+	text-decoration-color: var(--color2);
+	text-decoration-thickness: 0.2rem;
+	text-decoration-style: dotted;
+}
+section main .item div p{
+	font-size: 1rem;
+	margin: 0.5rem 0 0 0;
+	line-height: 1rem;
+}
+
+main a, main a:visited{
+	color: black;
+	font-size: 2rem;
+}
+main a:hover{
+	color: var(--color1);
+}
+
+/* Escritorio */
+@media screen and (min-width: 1024px) {
+html{
+	padding: unset;
+	width: 100vw;
+}
+body {
+	display: block;
+	margin: unset;
+	padding: unset;
+	overflow: none;
+	padding: 1rem;
+	width: 90vw;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+body header{
+	display: inline;
+}
+body > header h1{
+	text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.9);
+	font-size: 6rem;
+	margin-bottom: 4rem;
+}
+body > header p{
+	color: grey;
+}
+
+main{
+	padding: unset;
+	width: 100%;
+}
+
+
+
+section{
+	margin-bottom: 8rem;
+}
+section header{
+}
+section header h1{
+	font-size: 4rem;
+	border: unset;
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+section main {
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	gap: 2rem;
+	row-gap: 1rem;
+	padding: 1rem;
+}
+section main .item{
+	border-radius: 1rem;
+	padding: 1rem;
+	height: 10rem;
+	width: 25rem;
+	background: linear-gradient(0deg, var(--color1-dark) 10%, var(--color1-light) 20%, white 95%, var(--color1-dark)); 
+	border: 1px solid var(--color1-dark);
+}
+section main .item a{
+	align-content: flex-start;
+	margin: unset;
+}
+section main .item img{
+	border: none;
+	height: 100px;
+	width: 100px;
+	margin: 0;
+}
+section main .item div{
+	margin: 0;
+	flex: 1;
+	padding-left: 1rem;
+}
+section main .item div h1{
+	margin: unset;
+	font-size: 1.6rem;
+	color: var(--color1);
+}
+section main .item div p{
+	color: black;
+	font-size: 1.2rem;
+	line-height: 1.2rem;
+	margin-top: 1rem;
+}
+}	/* Desktop */

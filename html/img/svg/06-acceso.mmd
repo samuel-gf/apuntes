@@ -1,0 +1,32 @@
+graph LR
+    A[Acceso remoto a sistemas&nbsp;] --> B["SSH (Secure Shell)"&nbsp;]
+    A --> C[VNC&nbsp;]
+    A --> D[RDP&nbsp;]
+    A --> E["Otros accesos (Telnet, Webmin)"&nbsp;]
+
+    B --> B1[Acceso seguro a consola&nbsp;]
+    B --> B2[Autenticación por contraseña o clave pública&nbsp;]
+    B --> B3[Túneles SSH y reenvío de puertos&nbsp;]
+    B --> B4["Transferencia de archivos (SCP, SFTP)"&nbsp;]
+    B --> B5[Puerto 22&nbsp;]
+
+    C --> C1[Acceso gráfico remoto&nbsp;]
+    C --> C2[Basado en framebuffer&nbsp;]
+    C --> C3[Puerto 5900+&nbsp;]
+    C --> C4[Sin cifrado nativo&nbsp;]
+
+    D --> D1[Acceso remoto a escritorios Windows&nbsp;]
+    D --> D2[Protocolos RDP de Microsoft&nbsp;]
+    D --> D3[Puerto 3389&nbsp;]
+    D --> D4[Con cifrado y compresión&nbsp;]
+
+    E --> E1["Telnet: acceso inseguro (obsoleto)"&nbsp;]
+    E --> E2[Webmin: interfaz web de administración&nbsp;]
+    E --> E3[Uso limitado por seguridad&nbsp;]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:1px
+    style C fill:#bfb,stroke:#333,stroke-width:1px
+    style D fill:#fbf,stroke:#333,stroke-width:1px
+    style E fill:#ffb,stroke:#333,stroke-width:1px
+

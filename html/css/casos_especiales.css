@@ -1,0 +1,16 @@
+.tabla_de_verdad{
+	overflow-x: auto;
+	max-width: 100%;
+}
+
+.tabla_de_verdad th{
+	min-width: 100px;
+}
+.tabla_de_verdad td{
+	font-family: Monospace;
+	font-family: "Hack";
+}
+
+.circuito{
+	width: 50%;
+}

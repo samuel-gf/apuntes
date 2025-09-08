@@ -1,0 +1,150 @@
+html{
+	padding: unset;
+}
+body{
+	padding: 0;
+	margin: 0;
+	font-size: 1.4rem;
+	display: flex;
+}
+
+section#nav-otros{
+	display: block;
+	margin-bottom: 5rem;
+}
+
+#label-menu-toggle{
+	display: none;
+}
+.toc{
+	max-height: unset;
+	overflow: unset;
+}
+
+nav{
+	width: 38.2%;
+	position: sticky;
+	top: 0;
+	float: left;
+	border: unset;
+	padding: 0rem 0rem 0rem 1rem;
+	/*margin-right: 2rem;*/
+	overflow-y: auto;
+	height: 100vh;
+	/*background: linear-gradient(180deg, var(--color1-light), var(--color1));*/
+	background-color: var(--color1-light);
+}
+nav > a:first-of-type {
+	display: none;
+}
+nav > h1:first-of-type{
+	display: none;
+}
+nav > h2:first-of-type{
+	display: none;
+}
+
+#logo{
+	border: unset;
+	margin: unset;
+	display: block;
+	width: 200px;
+
+}
+nav h1{
+	font-size: 2rem;
+}
+
+main{
+	width: 61.8%;
+	margin: 0 auto;
+	overflow-y: auto;
+	padding-left: 2rem;
+	padding-bottom: 4rem;
+}
+
+
+main header{
+	width: 100%;
+	display: block;
+	margin-bottom: 4rem;
+	padding-right: 2rem;
+}
+main header h1{
+	display: block;
+	font-weight: bold;
+	font-size: 5rem;
+	text-align: right;
+	margin: unset;
+	border-bottom: unset;
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+	padding-right: 0.5rem;
+}
+
+main header h2{
+	display: block;
+	font-size: 2rem;
+	font-weight: bold;
+	font-style: italic;
+	padding-right: 0.5rem;
+}
+
+main > h1{
+	font-size: 3rem;
+}
+main > h1:first-of-type{
+	margin-top: 1rem;
+}
+
+main > h2{
+	font-size: 1.8rem;
+}
+
+main > h3{
+}
+
+p{
+	line-height: 2rem;
+}
+
+pre code{
+	padding: 1rem 1rem 1rem 3rem;
+}
+
+/* Enlaces subir */
+.top{
+	display: unset;
+	text-decoration: none;
+	color: grey;
+	font-size: 1rem;
+	font-weight: normal;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+main h1:nth-of-type(1) a.top{
+	display: none;
+}
+
+.toc{
+	border: unset;
+	display: block;
+	clear: both;
+	padding-top: 2rem;
+}
+
+.toc_h1, .toc_h2{
+	font-size: 1.4rem;
+}
+
+.toc_h2::before{
+	margin-left: 2rem;
+}
+main li{
+	text-align: justify;
+}
+
+main section.actividades{
+	padding-left: 1rem;
+}
+

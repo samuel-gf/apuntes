@@ -1,0 +1,32 @@
+graph LR
+    A[Acceso de redes locales a redes públicas&nbsp;] --> B["NAT (Traducción de direcciones)"&nbsp;]
+    A --> C[Firewall&nbsp;]
+    A --> D[Proxy&nbsp;]
+    A --> E[Escenarios y herramientas&nbsp;]
+
+    B --> B1[NAT dinámico&nbsp;]
+    B --> B2[NAT estático&nbsp;]
+    B --> B3["Port Forwarding (DNAT)"&nbsp;]
+    B --> B4["NAPT / PAT (mascaramiento)"&nbsp;]
+
+    C --> C1[Filtrado por IP/puertos&nbsp;]
+    C --> C2[Políticas de entrada/salida&nbsp;]
+    C --> C3["Estado de conexión (stateful)"&nbsp;]
+    C --> C4[UFW / iptables / firewalld&nbsp;]
+
+    D --> D1[Proxy directo y transparente&nbsp;]
+    D --> D2[HTTP / HTTPS / FTP&nbsp;]
+    D --> D3[Control de acceso y caché&nbsp;]
+    D --> D4[Squid y otros&nbsp;]
+
+    E --> E1[Conexión segura a Internet&nbsp;]
+    E --> E2[DMZ para servicios públicos&nbsp;]
+    E --> E3[Limitación de ancho de banda&nbsp;]
+    E --> E4[Monitorización del tráfico&nbsp;]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:1px
+    style C fill:#bfb,stroke:#333,stroke-width:1px
+    style D fill:#fbf,stroke:#333,stroke-width:1px
+    style E fill:#ffb,stroke:#333,stroke-width:1px
+

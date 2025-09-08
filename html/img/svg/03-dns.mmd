@@ -1,0 +1,28 @@
+graph LR
+    A[Sistemas de resolución de nombres&nbsp;] --> B[DNS&nbsp;]
+    A --> C[mDNS&nbsp;]
+    A --> D[NetBIOS&nbsp;]
+    A --> E[WINS&nbsp;]
+
+    B --> B1[Jerárquico y distribuido&nbsp;]
+    B --> B2[Resuelve nombres de dominio&nbsp;]
+    B --> B3[Internet y redes privadas&nbsp;]
+
+    C --> C1[Resolución en red local&nbsp;]
+    C --> C2[Multicast DNS&nbsp;]
+    C --> C3[Sin servidor central&nbsp;]
+
+    D --> D1[Identificación en redes Windows&nbsp;]
+    D --> D2[Resolución NetBIOS nombres&nbsp;]
+    D --> D3[Redes locales pequeñas&nbsp;]
+
+    E --> E1[Servidor WINS centralizado&nbsp;]
+    E --> E2[Resuelve nombres NetBIOS&nbsp;]
+    E --> E3[Compatibilidad con redes Windows&nbsp;]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:1px
+    style C fill:#bfb,stroke:#333,stroke-width:1px
+    style D fill:#fbf,stroke:#333,stroke-width:1px
+    style E fill:#ffb,stroke:#333,stroke-width:1px
+

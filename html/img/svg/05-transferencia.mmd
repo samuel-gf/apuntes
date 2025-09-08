@@ -1,0 +1,25 @@
+graph LR
+    A[Transferencia de ficheros&nbsp;] --> B[FTP&nbsp;]
+    A --> C[SFTP&nbsp;]
+    A --> D["Otros servicios (SAMBA/NFS)"&nbsp;]
+
+    B --> B1["Inseguro (sin cifrado)"&nbsp;]
+    B --> B2["Puertos 21 (control), 20 (datos)"&nbsp;]
+    B --> B3[Modo activo y pasivo&nbsp;]
+    B --> B4[Acceso anónimo o autenticado&nbsp;]
+
+    C --> C1["Seguro (sobre SSH)"&nbsp;]
+    C --> C2[Puerto 22&nbsp;]
+    C --> C3[Autenticación por usuario o clave SSH&nbsp;]
+    C --> C4[Usado en servidores Linux&nbsp;]
+
+    D --> D1[SAMBA: compatibilidad con Windows&nbsp;]
+    D --> D2[NFS: redes UNIX/Linux&nbsp;]
+    D --> D3[Compartición de carpetas y archivos&nbsp;]
+    D --> D4[Montaje automático en clientes&nbsp;]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:1px
+    style C fill:#bfb,stroke:#333,stroke-width:1px
+    style D fill:#ffb,stroke:#333,stroke-width:1px
+

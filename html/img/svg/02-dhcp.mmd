@@ -1,0 +1,28 @@
+graph LR
+    A[Configuración automática de red&nbsp;] --> B[DHCP&nbsp;]
+    A --> C[BOOTP&nbsp;]
+    A --> D[SLAAC&nbsp;]
+    A --> E[Configuración estática&nbsp;]
+
+    B --> B1[Protocolo dinámico de asignación IP&nbsp;]
+    B --> B2[Asigna IP, máscara, gateway, DNS...&nbsp;]
+    B --> B3[Modos dinámico, automático y manual&nbsp;]
+    B --> B4[Usado en redes locales modernas&nbsp;]
+
+    C --> C1[Predecesor de DHCP&nbsp;]
+    C --> C2[Configuración manual en servidor&nbsp;]
+    C --> C3[Limitado y obsoleto&nbsp;]
+
+    D --> D1[Autoconfiguración IPv6&nbsp;]
+    D --> D2[Sin necesidad de servidor&nbsp;]
+    D --> D3[Utiliza prefijos anunciados por routers&nbsp;]
+
+    E --> E1[Asignación manual en el cliente&nbsp;]
+    E --> E2[Sin dependencia de servidores&nbsp;]
+    E --> E3[Útil en dispositivos fijos&nbsp;]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:1px
+    style C fill:#ffc,stroke:#333,stroke-width:1px
+    style D fill:#bfb,stroke:#333,stroke-width:1px
+    style E fill:#eee,stroke:#333,stroke-width:1px

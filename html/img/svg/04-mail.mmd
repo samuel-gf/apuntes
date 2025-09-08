@@ -1,0 +1,33 @@
+graph LR
+    A[Correo electrónico&nbsp;] --> B["Envío de correo (SMTP)"&nbsp;]
+    A --> C[Recepción de correo&nbsp;]
+    C --> C1[POP3&nbsp;]
+    C --> C2[IMAP&nbsp;]
+    A --> D[Webmail y otros servicios&nbsp;]
+
+    B --> B1[Protocolo de salida&nbsp;]
+    B --> B2[Puerto 25/587/465&nbsp;]
+    B --> B3[Servidor SMTP del remitente&nbsp;]
+    B --> B4[Autenticación y cifrado TLS&nbsp;]
+
+    C1 --> C1a[Descarga mensajes al cliente&nbsp;]
+    C1 --> C1b[Elimina del servidor&nbsp;]
+    C1 --> C1c["Puerto 110 (995 con TLS)"&nbsp;]
+    C1 --> C1d[Ideal para acceso desde un solo dispositivo&nbsp;]
+
+    C2 --> C2a[Sincroniza con el servidor&nbsp;]
+    C2 --> C2b[Permite carpetas y etiquetas&nbsp;]
+    C2 --> C2c["Puerto 143 (993 con TLS)"&nbsp;]
+    C2 --> C2d[Uso multiplataforma y simultáneo&nbsp;]
+
+    D --> D1[Acceso vía navegador&nbsp;]
+    D --> D2[Roundcube, SquirrelMail...&nbsp;]
+    D --> D3[Usa protocolos SMTP + IMAP/POP3&nbsp;]
+    D --> D4[Basado en PHP/HTML y servidor web&nbsp;]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:1px
+    style C fill:#fbf,stroke:#333,stroke-width:1px
+    style C1 fill:#ffc,stroke:#333,stroke-width:1px
+    style C2 fill:#cfc,stroke:#333,stroke-width:1px
+    style D fill:#eef,stroke:#333,stroke-width:1px

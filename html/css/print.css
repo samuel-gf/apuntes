@@ -1,0 +1,36 @@
+body{
+	margin: 2cm 1cm;
+}
+
+main{
+	margin: unset;
+	padding: unset;
+}
+
+
+main h1, main h2, main h3{
+    break-after: avoid;
+	break-inside: avoid;
+}
+main h1{
+	break-before: always;
+}
+
+/* Truco de ChatGPT para evitar que títulos queden huérfanos al final de una página sin párrafo de texto */
+/*
+main h1::after {
+    content: "\A ";
+    white-space: pre;
+}
+*/
+
+
+a.top{
+	display: none;
+}
+
+
+table, figure{
+	page-break-inside: avoid;
+}
+
