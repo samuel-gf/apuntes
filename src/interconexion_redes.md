@@ -4,6 +4,189 @@ toc : true
 logo : true
 ---
 
+# Modelo Cliente-Servidor
+
+En las redes locales, los dispositivos adoptan principalmente **dos roles**: **cliente** y **servidor**.
+
+## Servidor
+
+Un ==servidor== es un equipo o software que **proporciona servicios o recursos** a otros dispositivos (clientes) de la red.  
+
+### Características de un servidor
+- Siempre disponible para responder a solicitudes de clientes
+- Gestiona recursos compartidos (archivos, bases de datos, aplicaciones)
+- Puede ser físico (hardware dedicado) o virtual (servicios en la nube o en un PC)
+
+### Ejemplos de servidores en una LAN
+- Servidor de archivos : Permite que los usuarios guarden y compartan documentos en una ubicación centralizada.
+- Servidor de impresión : Administra impresoras compartidas para que todos los usuarios puedan imprimir.
+- Servidor web interno : Aloja páginas web accesibles solo dentro de la red local.
+- Servidor DHCP : Asigna direcciones IP automáticamente a los dispositivos de la red.
+- Servidor DNS : Resuelve nombres de dominio dentro de la red interna.
+
+**Ejemplo práctico:**  
+En una oficina, hay un servidor de archivos llamado `FILE-SERVER`. Todos los empleados acceden a una carpeta compartida `\\FILE-SERVER\Proyectos` para subir y descargar documentos. Aquí, `FILE-SERVER` actúa como **servidor**, y los PCs de los empleados como **clientes**.
+
+
+## Cliente
+
+Un ==cliente== es un dispositivo o software que **solicita servicios o recursos** a un servidor.  
+
+### Características de un cliente
+- Inicia solicitudes hacia un servidor
+- Consume servicios, pero no los ofrece
+- Puede ser un PC, portátil, teléfono móvil, o una aplicación específica
+
+### Ejemplos de clientes en una LAN
+- Computadora personal : Solicita archivos del servidor de archivos.
+- Impresora virtual : Solicita trabajo al servidor de impresión.
+- Navegador web : Solicita páginas a un servidor web.
+- Cliente de correo electrónico : Se conecta a un servidor de correo interno o externo.
+
+**Ejemplo práctico:**  
+Un empleado abre su computadora y accede a la carpeta `\\FILE-SERVER\Proyectos`. Su 
+computadora es un **cliente** que solicita los archivos al **servidor** `FILE-SERVER`.
+
+## Interacción cliente-servidor
+
+La comunicación sigue un ==modelo de petición-respuesta==:
+
++ El ==cliente== envía una solicitud al servidor.
++ El ==servidor== procesa la solicitud y devuelve una respuesta.
++ El cliente recibe y utiliza la información proporcionada por el servidor.
+
+**Ejemplo con impresora compartida:**
+- El usuario imprime un documento desde su PC (cliente).
+- La solicitud se envía al **servidor de impresión**.
+- El servidor gestiona la cola de impresión y envía el documento a la impresora.
+- El usuario recibe confirmación de que la impresión se ha realizado.
+
+
+## Tipos de servidores según el servicio
+
+<table>
+<tr><th>Tipo de servidor</th><th>Función principal</th><th>Ejemplo en LAN</th></tr>
+<tr><td>Servidor de archivos     </td><td> Almacena y comparte archivos                       </td><td> `FILE-SERVER`</td></tr>
+<tr><td>Servidor de impresión    </td><td> Gestiona impresoras compartidas                     </td><td> `PRINT-SERVER`</td></tr>
+<tr><td>Servidor web             </td><td> Aloja páginas web                                   </td><td> `INTRANET-SERVER`</td></tr>
+<tr><td>Servidor DHCP            </td><td> Asigna direcciones IP automáticamente              </td><td> `DHCP-SERVER`</td></tr>
+<tr><td>Servidor DNS             </td><td> Resuelve nombres de dominio                         </td><td> `DNS-SERVER`</td></tr>
+<tr><td>Servidor de correo       </td><td> Gestiona correo electrónico                         </td><td> `MAIL-SERVER`</td></tr>
+</table>
+
+
+# Redes de Pares (P2P)
+
+## Introducción a P2P
+
+Una ==red de pares (P2P, Peer-to-Peer)== es un tipo de red en la que **todos los dispositivos tienen el mismo rol**.  
+No existe un servidor central que administre los recursos, sino que **cada equipo puede actuar tanto como cliente como servidor** según la necesidad.
+
+
+## Características de las redes P2P
+
+- Igualdad entre nodos : No hay jerarquía estricta de cliente y servidor.
+- Recursos compartidos : Cada usuario decide qué carpetas, impresoras o servicios comparte.
+- Simplicidad : Son fáciles de configurar y mantener en redes pequeñas.
+- Menor coste : No se necesita un servidor dedicado.
+- Escalabilidad limitada : Funcionan bien en grupos pequeños, pero se vuelven lentas o difíciles de gestionar con muchos equipos.
+
+
+## Cliente y servidor en P2P
+
+En una red P2P, un mismo dispositivo puede comportarse como:
+
+- Cliente : cuando accede a recursos compartidos por otro.
+- Servidor : cuando comparte sus propios recursos con otros.
+
+**Ejemplo práctico:**  
+El PC de Juan comparte la carpeta `\\Juan\Musica`, mientras que el PC de Ana comparte `\\Ana\Fotos`.  
+- Cuando Juan descarga una foto desde el PC de Ana, su PC actúa como **cliente** y el de Ana como **servidor**.  
+- Cuando Ana escucha música desde el PC de Juan, los roles se invierten.  
+
+
+## Ejemplos de uso de redes P2P
+
+- En el hogar : Compartir carpetas o impresoras entre ordenadores sin servidor central.
+- En la oficina pequeña : Intercambiar documentos entre 4–5 PCs conectados en red.
+- Aplicaciones P2P : Programas como BitTorrent, eMule o redes de mensajería descentralizadas usan este modelo.
+
+
+## Ventajas y desventajas
+
+### Ventajas
+- Menor coste (no requiere servidor dedicado).
+- Configuración sencilla.
+- Cada usuario controla qué comparte.
+
+### Desventajas
+- Difícil de administrar cuando hay muchos equipos.
+- Menor seguridad: depende de la configuración de cada usuario.
+- No es adecuado para empresas grandes.
+
+
+# Infraestructura de Red – Apuntes
+
+
+La ==infraestructura de red== está formada por los **componentes físicos y lógicos** que permiten la comunicación entre dispositivos.  
+Estos se dividen en tres grandes grupos:
+
++ **Dispositivos finales**  
++ **Dispositivos intermedios**  
++ **Medios de red**
+
+
+## Dispositivos Finales
+
+Son los equipos que **generan, envían, reciben o consumen datos** en la red.  
+En una comunicación, se consideran los **orígenes y destinos** de la información.
+
+### Ejemplos de dispositivos finales
+- **Computadoras de escritorio y portátiles**
+- **Teléfonos inteligentes y tablets**
+- **Impresoras de red**
+- **Servidores** (correo, web, archivos, etc.)
+- **Cámaras IP y sistemas de videovigilancia**
+- **Smart TV y consolas de videojuegos**
+
+**Ejemplo práctico:**  
+Un usuario envía un correo desde su **PC (dispositivo final)** hacia un **servidor de correo (dispositivo final)** a través de la red.
+
+
+## Dispositivos Intermedios
+
+Son los equipos que **conectan y dirigen el tráfico** entre los dispositivos finales.  
+No generan datos propios de usuario, pero se encargan de que los mensajes lleguen correctamente a su destino.
+
+### Ejemplos de dispositivos intermedios
+- Switches : Conectan múltiples dispositivos dentro de una LAN.  
+- Routers : Conectan diferentes redes y gestionan el acceso a Internet.  
+- Puntos de acceso (AP) : Permiten la conexión inalámbrica.  
+- Firewalls : Filtran el tráfico y protegen la red.  
+- Gateways : Traducen protocolos entre distintas redes.  
+
+**Ejemplo práctico:**  
+El correo enviado desde el PC pasa por un **switch**, después por un **router**, y finalmente llega al servidor de correo.
+
+
+## Medios de Red
+
+Son los **canales físicos o inalámbricos** por los que circula la información entre dispositivos.
+
+### Tipos de medios de red
+**Medios guiados (cableados)**
+- Par trenzado (UTP, STP) = Más común en redes LAN.
+- Fibra óptica = Alta velocidad y grandes distancias.
+- Cable coaxial = Usado antiguamente en LANs, aún en TV por cable.
+
+**Medios no guiados (inalámbricos)**
+- Wi-Fi = Conexiones inalámbricas de corto/medio alcance.
+- Bluetooth = Conexiones personales (teclados, ratones, auriculares).
+- Ondas de radio/microondas = Enlaces de larga distancia.
+- Infrarrojo = Uso limitado en dispositivos de corto alcance.
+
+**Ejemplo práctico:**  
+El PC de un usuario se conecta al switch mediante **cable UTP**, mientras que un móvil se conecta al mismo switch a través de un **punto de acceso Wi-Fi**.
 
 
 # Adaptadores para red cableada

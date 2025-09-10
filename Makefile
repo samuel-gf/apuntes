@@ -24,7 +24,6 @@ html/svg/mmd/%.svg: src/mmd/%.mmd
 
 # Crear el .html y añade los enlaces subir para cada cabecera h1 y h2
 html/%.html: src/%.md
-	@cat $< | fold -s -w 120 | sponge $<
 	@html_forge cabecera $<          >  $@; \
 	html_forge  md2html  $<          >> $@; \
 	html_forge  pie      $<          >> $@; \
