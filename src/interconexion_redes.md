@@ -125,8 +125,7 @@ El PC de Juan comparte la carpeta `\\Juan\Musica`, mientras que el PC de Ana com
 - No es adecuado para empresas grandes.
 
 
-# Infraestructura de Red – Apuntes
-
+# Infraestructura de Red
 
 La ==infraestructura de red== está formada por los **componentes físicos y lógicos** que permiten la comunicación entre dispositivos.  
 Estos se dividen en tres grandes grupos:

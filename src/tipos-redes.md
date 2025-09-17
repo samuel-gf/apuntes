@@ -26,6 +26,8 @@ distintas empresas o instituciones.
 Piensa un momento en todas las actividades que realizas cada día que dependen de Internet: desde consultar el tiempo 
 hasta hablar con amigos o acceder a la banca en línea.
 
+![](https://www.adslzone.net/app/uploads-adslzone.net/2014/11/apertura-internet.jpg)
+
 # Redes locales
 
 Las redes locales pueden tener muchos tamaños. Van desde las más simples, formadas solo por dos ordenadores, hasta 
@@ -61,6 +63,8 @@ Investiga:
 - ¿A qué velocidad?
 - Busca una fotografía relacionada
 </section>
+
+![](https://www.redeslocales.guiaburros.es/wp-content/uploads/2018/08/redes-locales-guiaburros.jpg)
 
 # Dispositivos conectados mediante redes
 
@@ -102,6 +106,8 @@ no hayas puesto en la anterior actividad.
 - Un ejemplo de uso donde se vea la razón para que el dispositivo se conecte a una red
 - Imagen
 </section>
+
+![](https://miro.medium.com/v2/resize:fit:860/1*ONYIlo3Zdtk6ZerPkj0ELg.jpeg)
 
 ## Otros tipos de dispositivos
 
@@ -161,6 +167,8 @@ informáticos, gráficos, fotos, voz, video y música.
 + Escribe en un papel una palabra en binario y pide a un compañero que lo decodifique con la ayuda de una tabla \
   ASCII
 </section>
+
+![](https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2023/02/wifi-vs-ethernet-diferencias-cual-dos-deberia-usar-2945116.jpg)
 
 ## Métodos comunes de transmisión de datos
 
