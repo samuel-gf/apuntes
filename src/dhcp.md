@@ -146,6 +146,28 @@ En Linux, se pueden ver en `/var/lib/dhcp/dhclient.leases`:
 - Necesidad de controles de seguridad : en redes corporativas (autenticación, filtrado de MAC).
 
 
+# Instalación básica del sistema
+## Instalación básica servidor DHCP
+
+Instala el paquete *isc-dhcp-server*.
+
+
+Tiene dos !!ficheros de configuración!!:
+
+- Interface : /etc/default/isc-dhcp-server
+- Configuración general : /etc/dhcp/dhcpd.conf
+
+- Comprobar errores : dhcpd -cf /path/to/dhcpd.conf
+- Controlar las conexiones en tiempo real : sudo watch dhcp-lease-list
+
+
+## Instalación básica Cliente DHCP
+
+Instala el paquete *isc-dhcp-client*.
+
+- Info sobre el servidor DHCP : sudo dhclient -v «interfaz»
+- Soltar una IP : sudo dhclient -r «interfaz»
+
 
 
 

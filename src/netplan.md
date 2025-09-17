@@ -1,11 +1,19 @@
 ---
 title : Netplan
+subtitle : Guia básica
 toc : true
 logo : true
 ---
 
+# ¿Qué es NetPlan?
 
-# Configurar el equipo
+Netplan es un sistema de configuración de red en Linux, introducido principalmente en Ubuntu 17.10 y versiones posteriores.
+Funciona como una capa de abstracción:
+
+- Los usuarios administradores configuran la red en YAML.
+- Netplan traduce esa configuración a systemd-networkd o NetworkManager, según la elección.
+
+# Dar nombre al equipo
 
 Cambiar el nombre al equipo
 
@@ -13,49 +21,89 @@ Cambiar el nombre al equipo
 sudo hostnamectl set-hostname «nuevo_nombre»
 ```
 
-# Netplan
+o más sencilla:
 
-Configura la red.
+```
+sudo hostname «nuevo_nombre»
+```
 
-- Fichero de configuración : /etc/netplan/01-network-manager-all.yaml
+
+
+# Configuración para IP estática
+
+Ejemplo de configuración estática con *systemd-networkd*. En este ejemplo se configura un equipo
+con la IP `192.168.1.100` con una máscara de 24 bits, y los servidores de nombres `8.8.8.8` y `1.1.1.1`.
+
+Edita el fichero de configuración : `/etc/netplan/01-network-manager-all.yaml`
 
 ```
 network:
+  version: 2
+  renderer: networkd
   ethernets:
     enp0s3:
       dhcp4: no
-      addresses: [192.168.1.10/24]
-      nameservers:
-        addresses: [208.67.222.222]
+      addresses:
+        - 192.168.1.100/24
       routes:
         - to: default
           via: 192.168.1.1
-  version: 2
+      nameservers:
+        addresses: [8.8.8.8, 1.1.1.1]
 ```
 
 Para aplicar los cambios *sudo netplan apply*
 
-# Servidor DHCP
+# Configuración para IP dinámica
 
-Instala el paquete *isc-dhcp-server*.
+Ejemplo de configuración estática con *systemd-networkd*. En este ejemplo se configura un equipo
+con la IP `192.168.1.100` con una máscara de 24 bits, y los servidores de nombres `8.8.8.8` y `1.1.1.1`.
 
+Edita el fichero de configuración : `/etc/netplan/01-network-manager-all.yaml`
 
-Tiene dos !!ficheros de configuración!!:
+```
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3:
+      dhcp4: no
+      addresses: [192.168.1.100/24]
+      routes:
+        - to: default
+          via: 192.168.1.1
+      nameservers:
+        addresses: [8.8.8.8, 1.1.1.1]
+```
 
-- Interface : /etc/default/isc-dhcp-server
-- Configuración general : /etc/dhcp/dhcpd.conf
+Para aplicar los cambios *sudo netplan apply*
 
-- Comprobar errores : dhcpd -cf /path/to/dhcpd.conf
-- Controlar las conexiones en tiempo real : sudo watch dhcp-lease-list
+# Comandos básicos de NetPlan
 
+## Probar configuración sin hacerla definitiva
 
-# Cliente DHCP
+Permite validar y volver atrás si falla (útil para no perder conexión en remoto) `sudo netplan try`
 
-Instala el paquete *isc-dhcp-client*.
+## Aplicar la configuración
 
-- Info sobre el servidor DHCP : sudo dhclient -v «interfaz»
-- Soltar una IP : sudo dhclient -r «interfaz»
+Hace los cambios permanentes `sudo netplan apply`
 
+# Renderers
 
+- systemd-networkd : Ligero, usado en servidores `renderer: networkd`
+- NetworkManager : Orientado a escritorios y entornos con cambios frecuentes de red `renderer: NetworkManager`
 
+Si no hay renderer, Netplan aplica el predeterminado del sistema que suelen ser:
+
+- En Ubuntu Server : suele ser systemd-networkd.
+- En Ubuntu Desktop : suele ser NetworkManager.
+
+# Buenas prácticas
+
+Siempre hacer copia de seguridad antes de editar:
+
+`sudo cp /etc/netplan/01-netcfg.yaml ~/backup-netcfg.yaml`
+
+- Verificar la indentación en YAML (muy estricta).
+- Probar siempre con netplan try antes de aplicar en un servidor en producción.
 
