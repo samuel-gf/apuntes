@@ -81,6 +81,12 @@ Es uno de los conceptos clave para entender cómo funciona DHCP.
 /// ejemplo
 Ejemplo de lease en DHCP
 
+### Borrar los leses del servidor
+
++ Detener el servidor `sudo systemctl stop isc-dhcp-server`
++ Limpiar los leases `sudo rm /var/lib/dhcpd/dhcpd.leases`
++ Reiniciar el servicio `sudo systemctl start isc-dhcp-server`
+
 **Servidor DHCP**
 
 ```
@@ -147,10 +153,12 @@ En Linux, se pueden ver en `/var/lib/dhcp/dhclient.leases`:
 
 
 # Instalación básica del sistema
-## Instalación básica servidor DHCP
+
+## Instalación servidor DHCP
+
+### Paquete de instalación
 
 Instala el paquete *isc-dhcp-server*.
-
 
 Tiene dos !!ficheros de configuración!!:
 
@@ -159,6 +167,54 @@ Tiene dos !!ficheros de configuración!!:
 
 - Comprobar errores : dhcpd -cf /path/to/dhcpd.conf
 - Controlar las conexiones en tiempo real : sudo watch dhcp-lease-list
+
+### Configuración del sistema
+
+Ejemplo de un servidor DHCP para red 192.168.1.0/24:
+
+```
+# Tiempo de concesión por defecto
+default-lease-time 600;
+max-lease-time 7200;
+
+# Dirección del servidor DNS y dominio
+option domain-name "midominio.local";
+option domain-name-servers 8.8.8.8, 1.1.1.1;
+
+# Rango de direcciones que entregará el servidor
+subnet 192.168.1.0 netmask 255.255.255.0 {
+  range 192.168.1.100 192.168.1.200;
+  option routers 192.168.1.1;
+  option broadcast-address 192.168.1.255;
+}
+```
+
+### Comandos para el servicio
+
+```
+sudo systemctl restart isc-dhcp-server   # Reinicia servicio
+sudo systemctl status isc-dhcp-server    # Ver estado
+sudo journalctl -xeu isc-dhcp-server     # Ver logs en caso de error
+```
+
+### Reservas estáticas
+
+Puedes asignar una IP fija a un cliente concreto usando su MAC address:
+
+```
+host servidor1 {
+  hardware ethernet 08:00:27:aa:bb:cc;
+  fixed-address 192.168.1.50;
+}
+```
+
+### Ver concesiones activas
+
+En el archivo `/var/lib/dhcp/dhcpd.leases`
+
+O mediante el comando `cat /var/lib/dhcp/dhcpd.leases`
+
+
 
 
 ## Instalación básica Cliente DHCP
@@ -243,9 +299,7 @@ ipconfig /renew
 
 ```
 ip addr show        #Verificar configuración IP
-
 sudo dhclient -v    #Forzar renovación de IP
-
 sudo dhclient -r    #Liberar la IP
 ```
 
@@ -253,9 +307,7 @@ sudo dhclient -r    #Liberar la IP
 
 ```
 ipconfig /all       # Ver configuración
-
 ipconfig /renew     # Renovar IP
-
 ipconfig /release   #Liberar IP
 ```
 
