@@ -165,7 +165,7 @@ Tiene dos !!ficheros de configuración!!:
 - Interface : /etc/default/isc-dhcp-server
 - Configuración general : /etc/dhcp/dhcpd.conf
 
-- Comprobar errores : dhcpd -cf /path/to/dhcpd.conf
+- Comprobar errores : dhcpd -cf /etc/dhcp/dhcpd.conf
 - Controlar las conexiones en tiempo real : sudo watch dhcp-lease-list
 
 ### Configuración del sistema
