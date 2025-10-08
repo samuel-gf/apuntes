@@ -312,7 +312,7 @@ sudo named-checkzone midominio.local /etc/bind/db.midominio.local
 
 ## Probar el sistema
 
-- Desde el servidor `dig @127.0.0.1 equipo1.midominio.local`
-- Desde un cliente `dig @192.168.1.10 equipo1.midominio.local`
+- Desde el servidor `dig @127.0.0.1 equipo1.midominio`
+- Desde un cliente `dig @192.168.1.10 equipo1.midominio`
 
 
