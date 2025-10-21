@@ -134,3 +134,59 @@ Ejemplo:: 192.168.1.10 /24 → los primeros 24 bits son de la red y los últimos
 - Puerta de enlace (Gateway) = Dirección IP del router que conecta la red local a otras redes o Internet.
 - DNS (Domain Name System) = Convierte nombres de dominio (ej. google.com) en direcciones IP.
 - Subredes = División de una red grande en redes más pequeñas para optimizar el tráfico y la seguridad.
+
+<div class="actividades">
+Nivel 1: Básico
+
+Tienes la red 192.168.1.0/24.
+
+Divide esta red en 4 subredes iguales.
+
+Escribe: máscara de subred, dirección de red, rango de hosts válidos y dirección de broadcast para cada subred.
+
+Una empresa dispone de la red 10.0.0.0/8 y necesita al menos 500 hosts por subred.
+
+¿Qué máscara debe usar?
+
+¿Cuántas subredes se obtienen?
+
+Da un ejemplo con la primera subred.
+
+🔹 Nivel 2: Intermedio
+
+La red 172.16.0.0/16 debe dividirse en subredes con 2000 hosts cada una.
+
+¿Qué máscara utilizar?
+
+¿Cuántas subredes se pueden crear?
+
+Indica las direcciones de red de las tres primeras subredes.
+
+Tienes la dirección 192.168.10.50/27.
+
+Determina:
+a) Dirección de red
+b) Broadcast
+c) Rango de hosts válidos
+d) Número total de hosts por subred
+
+🔹 Nivel 3: Avanzado
+
+La compañía “X” tiene asignada la red 200.100.0.0/20. Necesitan 5 sucursales, cada una con al menos 400 hosts.
+
+¿Cómo dividirías la red en subredes válidas para cada sucursal?
+
+Escribe las subredes asignadas.
+
+En la red 192.168.100.0/24, se pide hacer VLSM (subneteo variable) para:
+
+Departamento A: 100 hosts
+
+Departamento B: 50 hosts
+
+Departamento C: 25 hosts
+
+Departamento D: 10 hosts
+
+Calcula cómo repartir las subredes y escribe para cada departamento: red, máscara, hosts válidos y broadcast.
+</div>
