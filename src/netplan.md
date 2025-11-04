@@ -15,7 +15,7 @@ Esta guía ofrece información sobre como asignar nombres a los equipos de una r
 Cambiar el nombre al equipo
 
 ```
-sudo hostnamectl set-hostname «nuevo_nombre»
+sudo hostnamectl hostname «nuevo_nombre»
 ```
 
 o más sencilla para hacer un cambio que pueda ser temporal:
