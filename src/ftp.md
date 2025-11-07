@@ -24,10 +24,10 @@ sudo systemctl enable --now vsftpd
 sudo systemctl status vsftpd   # comprobar estado
 ```
 
-## Crea usuario
+## Crea usuario local
 
 ```
-sudo adduser --shell /usr/sbin/nologin ftpuser
+sudo adduser --shell /usr/sbin/nologin invitado
 ```
 
 Añade el shell a la lista de permitidos en `/etc/shells`
@@ -39,17 +39,61 @@ Añade el shell a la lista de permitidos en `/etc/shells`
 Crea un directorio para subir archivos:
 
 ```
-/home/ftpuser/upload
+/home/invitado/archivos
 ```
 
 y dale permisos para que se puedan subir archivos desde el cliente:
 
 ```
-sudo chown ftpuser:ftpuser /home/ftpuser/upload
+sudo chown invitado:invitado /home/invitado/upload
 ```
 
+# Configura el CHROOT
 
-## Fichero de configuración
+Crea el directorio `sudo mkdir -p /home/invitado/ftp/ficheros`
+
+- El directorio `ftp` debe tener como propietario a `root` y permisos `755`
+- El directorio `ficheros` debe tener como propietario a `invitado` y permisos `755`
+
+/// ejemplo
+```
+sudo chown root:root /home/ftpclient
+sudo chmod 755 /home/ftpclient
+
+sudo chown invitado:invitado /home/invitado/archivos
+sudo chmod 755 /home/invitado/archivos
+```
+///
+
+## Configura archivo de configuración
+
+```
+# Opciones generales
+listen=YES
+
+# Usuarios locales
+anonymous_enable=NO
+local_enable=YES
+write_enable=YES
+utf8_filesystem=YES
+local_umask=022
+
+# Encierra a cada usuario en su directorio base
+chroot_local_user=YES
+allow_writeable_chroot=YES
+
+# Usa la variable del usuario
+user_sub_token=$USER
+local_root=/home/$USER
+
+# Opciones de seguridad
+pam_service_name=vsftpd
+seccomp_sandbox=NO
+```
+
+# Configuración del sistema para usuarios locales
+
+## Fichero de configuración vsftpd.conf
 
 Copia de respaldo del fichero de configuración
 
@@ -115,19 +159,19 @@ sudo chmod 600 /etc/ssl/private/vsftpd.pem
 vsftpd requiere cuidado con permisos si usas `chroot` el home del usuario.
 
 /// ejemplo
-Crear usuario `ftpuser` con directorio base `/home/ftpuser` pero que en realidad
-su directorio base es `/home/ftpuser/ftp` y carpeta `uploads` con permiso de escritura:
+Crear usuario `invitado` con directorio base `/home/invitado` pero que en realidad
+su directorio base es `/home/invitado/ftp` y carpeta `archivos` con permiso de escritura:
 
 ```
 # crear usuario sin shell interactivo
-sudo useradd -m -d /home/ftpuser -s /usr/sbin/nologin ftpuser
-sudo passwd ftpuser
+sudo useradd -m -d /home/invitado -s /usr/sbin/nologin invitado
+sudo passwd invitado
 
 # crear estructura segura
-sudo mkdir -p /home/ftpuser/ftp/uploads
-sudo chown root:root /home/ftpuser/ftp            # home del chroot debe ser root
-sudo chmod 755 /home/ftpuser/ftp
-sudo chown ftpuser:ftp /home/ftpuser/ftp/uploads  # carpeta escribible
+sudo mkdir -p /home/invitado/ftp/archivos
+sudo chown root:root /home/invitado/ftp              # home del chroot debe ser root
+sudo chmod 755 /home/invitado/ftp
+sudo chown invitado:ftp /home/invitado/ftp/archivos  # carpeta escribible
 ```
 
 Si usas `local_root=/home/$USER/ftp` en `vsftpd.conf`, esto sirve.
@@ -169,3 +213,21 @@ telnet TU_SERVIDOR 21
 # probar rango pasivo
 nc -zv TU_SERVIDOR 40000-40010
 ```
+
+# Configuración para acceso anónimo
+
+Escenario que vamos a configurar
+
+Los usuarios anónimos podrán entrar con usuario anonymous o ftp, sin contraseña o con cualquier texto.
+
+Estarán encerrados (chroot) en /srv/ftp (no verán el resto del sistema).
+
+Por seguridad:
+
+No podrán escribir, solo descargar (lectura).
+
+Luego te muestro cómo habilitar escritura si la necesitas.
+
+🧩 1️⃣ Preparar el directorio anónimo
+
+Crea la carpeta pública y dale permisos de solo lectura:
