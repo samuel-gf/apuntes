@@ -252,19 +252,4 @@ Al conectar verás un aviso de certificado autofirmado que muestra la identifica
 
 # Configuración para acceso anónimo
 
-Escenario que vamos a configurar
-
-Los usuarios anónimos podrán entrar con usuario anonymous o ftp, sin contraseña o con cualquier texto.
-
-Estarán encerrados (chroot) en /srv/ftp (no verán el resto del sistema).
-
-Por seguridad:
-
-No podrán escribir, solo descargar (lectura).
-
-Luego te muestro cómo habilitar escritura si la necesitas.
-
-🧩 1️⃣ Preparar el directorio anónimo
-
-Crea la carpeta pública y dale permisos de solo lectura:
-
+Pendiente de hacer
