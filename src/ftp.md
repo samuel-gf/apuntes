@@ -204,6 +204,52 @@ telnet TU_SERVIDOR 21
 nc -zv TU_SERVIDOR 40000-40010
 ```
 
+# Crear un certificado TLS
+
+FTP por sí solo transmite todo sin cifrar. TLS (Transport Layer Security) añade una capa de cifrado, igual que HTTPS lo hace sobre HTTP.
+
+Cuando activas TLS en vsftpd, tu servidor se convierte en FTPS (FTP Secure). No confundir con SFTP, que usa SSH, son protocolos distintos.
+
+Primero necesitas un certificado (puede ser autofirmado o emitido por una CA certificado).
+
+Para un entorno de pruebas, basta con un certificado autofirmado:
+
+```
+sudo mkdir -p /etc/ssl/private
+sudo openssl req -x509 -nodes -days 3650 -newkey rsa:2048 \
+  -keyout /etc/ssl/private/vsftpd.pem -out /etc/ssl/private/vsftpd.pem \
+  -subj "/CN=ftp.clase.local"
+sudo chmod 600 /etc/ssl/private/vsftpd.pem
+```
+
+Esto genera un solo fichero que contiene clave privada + certificado público.
+
+## Configurar vsftpd para usar TLS
+
+Abre la configuración del fichero `/etc/vsftpd.conf` y añade estas líneas:
+
+```
+# --- Seguridad TLS ---
+ssl_enable=YES
+allow_anon_ssl=NO
+force_local_data_ssl=YES
+force_local_logins_ssl=YES
+
+rsa_cert_file=/etc/ssl/private/vsftpd.pem
+rsa_private_key_file=/etc/ssl/private/vsftpd.pem
+
+ssl_tlsv1=YES
+ssl_sslv2=NO
+ssl_sslv3=NO
+
+require_ssl_reuse=NO
+ssl_ciphers=HIGH
+```
+## Conexión segura desde Filezilla
+
+Abre el gestor de sitios y selecciona la opción de *Requiere FTP explícito sobre TLS*.
+Al conectar verás un aviso de certificado autofirmado que muestra la identificación del servidor.
+
 # Configuración para acceso anónimo
 
 Escenario que vamos a configurar
@@ -221,3 +267,4 @@ Luego te muestro cómo habilitar escritura si la necesitas.
 🧩 1️⃣ Preparar el directorio anónimo
 
 Crea la carpeta pública y dale permisos de solo lectura:
+
