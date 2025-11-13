@@ -45,27 +45,17 @@ Crea un directorio para subir archivos:
 y dale permisos para que se puedan subir archivos desde el cliente:
 
 ```
-sudo chown invitado:invitado /home/invitado/upload
-```
-
-# Configura el CHROOT
-
-Crea el directorio `sudo mkdir -p /home/invitado/ftp/ficheros`
-
-- El directorio `ftp` debe tener como propietario a `root` y permisos `755`
-- El directorio `ficheros` debe tener como propietario a `invitado` y permisos `755`
-
-/// ejemplo
-```
-sudo chown root:root /home/ftpclient
-sudo chmod 755 /home/ftpclient
-
 sudo chown invitado:invitado /home/invitado/archivos
-sudo chmod 755 /home/invitado/archivos
 ```
-///
 
-## Configura archivo de configuración
+# Confinar al usuario
+
+Este proceso es conocido como *chroot*.
+
+## Archivo de configuración para confinar usuario
+
+El ==archivo de configuración== del servicio es `/etc/vsftpd.conf`. Se recomienda hacer
+una copia de respaldo del fichero antes de editarlo y un ejemplo típico es:
 
 ```
 # Opciones generales
