@@ -229,7 +229,7 @@ Esto genera un solo fichero que contiene clave privada + certificado público.
 Abre la configuración del fichero `/etc/vsftpd.conf` y añade estas líneas:
 
 ```
-# --- Seguridad TLS ---
+# Seguridad TLS
 ssl_enable=YES
 allow_anon_ssl=NO
 force_local_data_ssl=YES
